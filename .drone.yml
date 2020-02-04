@@ -1,6 +1,6 @@
 workspace:
   base: /js
-  path: github.com/plate-vue
+  path: plate-vue
 pipeline:
   start_slack:
     image: plugins/slack
