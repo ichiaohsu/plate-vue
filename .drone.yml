@@ -4,7 +4,7 @@ workspace:
 pipeline:
   start_slack:
     image: plugins/slack
-    channel: jenkins
+    channel: ground_control
     secrets: [slack_webhook]
     username: plate-vue
     icon_url: https://vuejs.org/images/logo.png
@@ -25,7 +25,7 @@ pipeline:
     when:
       branch: [dev]
 
-  get_config:
+  get-config:
     image: gcr.io/mirrormedia-1470651750304/drone-cloud-sdk:latest
     secrets: [google_credentials]
     commands:
@@ -47,7 +47,7 @@ pipeline:
       event: [push]
       branch: [master, dev, speedup]
 
-  deploy_dev:
+  deploy-dev:
     image: nytimes/drone-gke
     zone: asia-east1-a
     cluster: dev
@@ -90,9 +90,9 @@ pipeline:
     when:
       branch: [dev, speedup]
 
-  finish_slack:
+  finish-slack:
     image: plugins/slack
-    channel: jenkins
+    channel: ground_control
     secrets: [slack_webhook]
     username: plate-vue
     icon_url: https://vuejs.org/images/logo.png
